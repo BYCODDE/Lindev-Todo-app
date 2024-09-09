@@ -1,19 +1,13 @@
 // import { SignIn } from "@clerk/clerk-react";
-import Home from "./Home";
 import { useAuth } from "@clerk/clerk-react";
 import { RedirectToSignIn } from "@clerk/clerk-react";
+import Header from "./Header";
 function Layout() {
   const { isSignedIn } = useAuth();
 
   return (
     <>
-       <div>
-       {isSignedIn ? (
-        <Home />
-      ) : (
-        <RedirectToSignIn />
-      )}
-    </div>
+      <div>{isSignedIn ? <Header /> : <RedirectToSignIn />}</div>
     </>
   );
 }
