@@ -1,16 +1,21 @@
 import { supabase } from "../client";
+// import { useUser } from "@clerk/clerk-react";
+export async function createPost(description, userId) {
+  // return(
 
-export async function createPost(description) {
+  // const { user } = useUser();
+
   await supabase
     .from("todos")
     .insert([
       {
         description,
-
-        // user_id: supabase.auth.user().id,
+        complate: false,
+        important: false,
+        user_id: userId,
       },
     ])
     .single();
-
-  // fetchData();
+  // )
+  console.log(description, userId);
 }
