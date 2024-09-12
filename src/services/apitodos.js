@@ -1,7 +1,7 @@
-import { supabase } from "../client";
+import { supabase } from "../supabase";
 
 export async function fetchData() {
-  const { data, error } = await supabase.from("todos").select("user_id");
+  const { data, error } = await supabase.from("todos").select();
   // .order("created_at", { ascending: false });
   if (error) {
     console.log(error);

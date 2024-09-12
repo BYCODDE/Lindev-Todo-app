@@ -24,14 +24,19 @@ function Addtask() {
         name="task"
         style={{
           backgroundImage: "url('./add_icon.svg')",
-          backgroundSize: "24px",
+          backgroundSize: "32px",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "left center",
           paddingLeft: "40px",
         }}
         onChange={(e) => setDescription(e.target.value)}
         value={description}
-        onMouseEnter={() => createPost(description, user.id)}
+        // onMouseEnter={() => createPost(description, user.id)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            createPost(description, user.id);
+          }
+        }}
       />
     </>
   );

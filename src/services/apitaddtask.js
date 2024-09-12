@@ -1,6 +1,8 @@
-import { supabase } from "../client";
+import { supabase } from "../supabase";
 // import { useUser } from "@clerk/clerk-react";
 export async function createPost(description, userId) {
+  console.log(description, userId);
+
   // return(
 
   // const { user } = useUser();
@@ -17,5 +19,4 @@ export async function createPost(description, userId) {
     ])
     .single();
   // )
-  console.log(description, userId);
 }
