@@ -1,25 +1,17 @@
-// import { TaskContext } from "../App";
-import { useState } from "react";
 import { createPost } from "../services/apitaddtask";
 import { useUser } from "@clerk/clerk-react";
+import { useContext } from "react";
+import { TaskContext } from "../App";
 function Addtask() {
-  // const { addTask } = useContext(TaskContext);
-  const [description, setDescription] = useState("");
+  const { description, setDescription } = useContext(TaskContext);
 
   const { user } = useUser();
-  // if (user) {
-  //   const userId = user.id;
-  //   // createPost(userId,description);
-  //   console.log(userId);
-  // }
-
-  // console.log(description);
 
   return (
     <>
       <input
         type="text"
-        className="placeholder:font-[600] placeholder:leading-6 placeholder:text-[#252931] placeholder:text-[16px] mt-[32px] px-[14px] py-[10px] rounded-lg bg-white shadow-md w-full"
+        className="placeholder:font-[600] placeholder:leading-6 placeholder:text-[#252931] placeholder:text-[16px] mt-[32px] px-[14px] py-[10px] rounded-lg bg-white shadow-md w-full outline-none"
         placeholder="Add task"
         name="task"
         style={{
@@ -29,11 +21,12 @@ function Addtask() {
           backgroundPosition: "left center",
           paddingLeft: "40px",
         }}
-        onChange={(e) => setDescription(e.target.value)}
-        value={description}
+        // onChange={(e) => setDescription(e.target.value)}
+        // value={description}
         // onMouseEnter={() => createPost(description, user.id)}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
+            setDescription(e.target.value);
             createPost(description, user.id);
           }
         }}

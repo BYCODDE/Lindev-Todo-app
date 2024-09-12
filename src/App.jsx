@@ -18,11 +18,11 @@ function App() {
   useEffect(() => {
     fetchData();
   });
-
+const [description, setDescription] = useState("");
 
   return (
     <TaskContext.Provider
-      value={{ addTasks, setAddTasks, addTask, setAddTask }}
+      value={{ addTasks, setAddTasks, addTask, setAddTask,description, setDescription }}
     >
       <Router>
         <Routes>
