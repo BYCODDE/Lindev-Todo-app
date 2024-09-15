@@ -1,8 +1,6 @@
 import { supabase } from "../supabase";
 
 export async function createPost(description, userId) {
-  console.log(description, userId);
-
   await supabase
     .from("todos")
     .insert([
@@ -14,5 +12,4 @@ export async function createPost(description, userId) {
       },
     ])
     .single();
-  // )
 }

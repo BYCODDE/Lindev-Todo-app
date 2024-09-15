@@ -21,13 +21,11 @@ function Addtask() {
           backgroundPosition: "left center",
           paddingLeft: "40px",
         }}
-        // onChange={(e) => setDescription(e.target.value)}
-        // value={description}
-        // onMouseEnter={() => createPost(description, user.id)}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             setDescription(e.target.value);
             createPost(description, user.id);
+            e.target.value = "";
           }
         }}
       />

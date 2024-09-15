@@ -2,7 +2,7 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { SignIn } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
-// import { supabase } from "./client";
+
 import { createContext } from "react";
 export const TaskContext = createContext();
 import { fetchData } from "./services/apitodos";
@@ -18,11 +18,18 @@ function App() {
   useEffect(() => {
     fetchData();
   });
-const [description, setDescription] = useState("");
+  const [description, setDescription] = useState("");
 
   return (
     <TaskContext.Provider
-      value={{ addTasks, setAddTasks, addTask, setAddTask,description, setDescription }}
+      value={{
+        addTasks,
+        setAddTasks,
+        addTask,
+        setAddTask,
+        description,
+        setDescription,
+      }}
     >
       <Router>
         <Routes>
